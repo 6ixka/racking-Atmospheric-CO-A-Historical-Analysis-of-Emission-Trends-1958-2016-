@@ -51,3 +51,92 @@ climate_change_df.head()
 
 ~~~
 ###  Data Analysis
+- **Time-Series Decomposition**: This was used to separate trend, seasonality, and residuals.
+
+- **Visualization:** Created line plots,  seasonal subseries plots, and anomaly detection visuals using Python library (Matplotlib)
+###  Data Inspection(check for missing values),  
+~~~python
+# check for any missing on each column
+climate_change_df.isna().any()
+
+~~~
+
+~~~python
+# counting the number of  missing values
+
+climate_change_df.isna().sum()
+~~~
+### Data Cleaning (handling missing values) 
+~~~python
+climate_change_df.shape
+~~~
+
+~~~python
+climate_change_df["co2"].mean() 
+~~~
+
+~~~python
+# filling the missing value with the mean value 352.32 on the co2 column
+
+climate_change_df= climate_change_df.fillna(352.32)
+
+climate_change_df.head()
+~~~
+
+~~~python
+# to cnfirm there arw no more missing value
+
+climate_change_df.isna().any()
+~~~
+### Data Visualization
+
+~~~python
+# Data Visiualization using the object oriented interface of matplotlib
+
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+
+
+# visualizing the co2 emission vs Time (date)
+
+ax.plot(climate_change_df.index, climate_change_df["co2"], color = "r")
+
+# labelling the x-axis and y-axis
+
+ax.set_xlabel("Time")
+ax.set_ylabel("co2 (part per million)")
+
+# adding a title
+fig.suptitle("The Atmospheric c02 Emission Trends (1958–2016)")
+
+# to show plot
+
+plt.show()              
+           
+~~~
+###  Data Interpretation
+- The data visualization above shows that there is a overall steady increase of co2 emission from 1958 to 2016.
+### Key Findings  
+
+**Steady Increase**: CO₂ levels rose from approximately 315 ppm in 1958 to over 403 ppm by 2016.
+
+**Seasonal Patterns**: A regular saw-tooth pattern was observed, corresponding to seasonal plant activity (photosynthesis cycles).
+
+**Acceleration in Emissions**: Linear curve indicates steady growth and increasing acceleration in emissions, especially post-2000.
+
+### Conclusion
+The findings of this study provide compelling evidence of the dramatic rise in atmospheric CO₂ over the last half-century.
+
+While natural seasonal variations exist, the long-term upward trend is unmistakably driven by industrialization, fossil fuel combustion, and land-use changes. 
+
+These results underscore the urgency for global climate mitigation strategies and support the scientific consensus on anthropogenic climate change.
+
+## Recommendations
+- I strongly reconmmend  the global adoption of renewable energy sources.
+
+- I strongly reconmmend the Promotion of  global CO₂ emission monitoring for real-time policy response.
+
+- I strongly reconmmend that this  findings should be used as part of educational material in environmental science curricula.
+
+- I strongly reconmmend the Extension of this  study to include temperature anomaly data for correlation analysis.
